@@ -1,0 +1,75 @@
+<%- include("partials/header"); -%>
+
+
+    <div class="container result-container">
+        <table class="table result-table table-dark table-hover">
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+
+                    <th scope="col">
+                        İlçe
+                    </th>
+                    <th scope="col">
+                        İlçe Nüfusu
+                    </th>
+
+                    <th scope="col">
+
+                        Ortalama Doğalgaz Fatura
+                    </th>
+                    <th scope="col">
+                        Ortalama Elektrik Faturası
+                    </th>
+                    <th scope="col">
+                        Ev ilanları
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th scope="row">1</th>
+                    <td id="district">
+
+                        <%=district%>
+
+                    </td>
+
+                    <td>
+                        <%= new Intl.NumberFormat("tr-TR").format(toplamNüfus) %> kişi
+                    </td>
+                    <td>
+                        <%= parseInt((parseInt(gasAmount)/parseInt(subAmount))/3) %> TL&nbsp&nbsp&nbsp <i
+                                class="far fa-question-circle"><span class="tooltiptext">İGDAŞ verilerinden ortalama bir
+                                    değerdir değişkenlik gösterebilir</span></i>
+                    </td>
+                    <td>
+                        171.66 TL&nbsp&nbsp&nbsp <i class="far fa-question-circle"><span class="tooltiptext">Ortalama
+                                değerdir Hesaplamak için
+                                <a target="_blank"
+                                    href="https://www.ckbogazici.com.tr/tr/tuketim-hesaplama">tıklayın</a>
+                            </span></i>
+                    </td>
+                    <td>
+                        <%=district%> ilçesindeki kiralık evler için <a target="_blank"
+                                href="https://www.sahibinden.com/kiralik-daire/istanbul-<%=districtSahibinden%>">tıklayın</a>
+                    </td>
+
+                </tr>
+            </tbody>
+        </table>
+
+        <section class="map-section">
+            <div class="container-fluid map-container">
+                <div id="mapid">
+                    <iframe id="mapFrame" src="http://sehirharitasi.ibb.gov.tr"></iframe>
+
+                </div>
+
+            </div>
+
+        </section>
+        <a href="/" class="btn btn-dark btn-md" role="button">geri dön</a>
+    </div>
+
+    <script src="/map.js"></script>
